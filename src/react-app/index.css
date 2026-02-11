@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 227 42% 28%;
+    --card: 0 0% 100%;
+    --card-foreground: 227 42% 28%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 227 42% 28%;
+    --primary: 227 42% 28%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 10% 93%;
+    --secondary-foreground: 227 42% 28%;
+    --muted: 40 10% 93%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 40 10% 93%;
+    --accent-foreground: 227 42% 28%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 227 42% 28%;
+    --radius: 0.5rem;
+    --chart-1: 227 42% 40%;
+    --chart-2: 227 42% 50%;
+    --chart-3: 227 42% 60%;
+    --chart-4: 227 42% 70%;
+    --chart-5: 227 42% 80%;
+  }
+
+  .dark {
+    --background: 227 42% 10%;
+    --foreground: 40 20% 97%;
+    --card: 227 42% 15%;
+    --card-foreground: 40 20% 97%;
+    --popover: 227 42% 15%;
+    --popover-foreground: 40 20% 97%;
+    --primary: 227 42% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 227 20% 20%;
+    --secondary-foreground: 40 20% 97%;
+    --muted: 227 20% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 227 20% 20%;
+    --accent-foreground: 40 20% 97%;
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 100% / 10%;
+    --input: 0 0% 100% / 15%;
+    --ring: 40 20% 97%;
+    --chart-1: 227 42% 40%;
+    --chart-2: 227 42% 50%;
+    --chart-3: 227 42% 60%;
+    --chart-4: 227 42% 70%;
+    --chart-5: 227 42% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter Variable", "Inter", system-ui, sans-serif;
+  }
+
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}
