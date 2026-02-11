@@ -25,12 +25,12 @@ const areas = [
   {
     icon: Coins,
     title: "Direito Previdenciário",
-    description: "Precisa solicitar aposentadoria ou benefício do INSS? Se afastou por doença ou tem dúvidas sobre pensão ou LOAS?"
+    description: "Precisa solicitar aposentadoria ou benefício do INSS? Se afastou por doença ou tem dúvidas sobre pensão ou LOAS? Tenha o amparo necessário para garantir seus benefícios com segurança."
   },
   {
     icon: Briefcase,
     title: "Direito Trabalhista",
-    description: "Foi demitido e não recebeu tudo? Trabalha sem registro ou com abusos de jornada? Conte com orientação para garantir seus direitos."
+    description: "Foi demitido e não recebeu tudo? Trabalha sem registro ou com abusos de jornada? Assegure o cumprimento da lei e garanta o que é seu por direito."
   }
 ];
 
