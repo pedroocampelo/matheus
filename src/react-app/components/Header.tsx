@@ -1,9 +1,11 @@
 import { Button } from "@/react-app/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import ContactModal from "@/react-app/components/ContactModal";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -41,7 +43,7 @@ export default function Header() {
             <button onClick={() => scrollToSection("blog")} className="text-sm font-medium hover:text-primary transition-colors">
               Blog
             </button>
-            <Button size="sm" className="ml-4">
+            <Button size="sm" className="ml-4" onClick={() => setIsContactModalOpen(true)}>
               Fale Conosco
             </Button>
           </nav>
@@ -72,13 +74,18 @@ export default function Header() {
               <button onClick={() => scrollToSection("blog")} className="text-sm font-medium hover:text-primary transition-colors text-left">
                 Blog
               </button>
-              <Button size="sm" className="w-full mt-4">
+              <Button size="sm" className="w-full mt-4" onClick={() => setIsContactModalOpen(true)}>
                 Fale Conosco
               </Button>
             </nav>
           </div>
         )}
       </div>
+
+      <ContactModal 
+        open={isContactModalOpen} 
+        onOpenChange={setIsContactModalOpen}
+      />
     </header>
   );
 }
