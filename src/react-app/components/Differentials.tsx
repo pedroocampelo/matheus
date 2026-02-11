@@ -12,14 +12,14 @@ const differentials = [
     description: "Equipe multidisciplinar preparada para atender diferentes demandas do direito, oferecendo soluções completas."
   },
   {
-    icon: Users,
-    title: "Equipe experiente & especializada",
-    description: "Profissionais qualificados e atualizados com as melhores práticas do mercado jurídico."
-  },
-  {
     icon: MessageSquare,
     title: "Comunicação clara e transparente",
     description: "Mantemos você informado em todas as etapas, com linguagem acessível e respostas rápidas."
+  },
+  {
+    icon: Users,
+    title: "Equipe experiente & especializada",
+    description: "Profissionais qualificados e atualizados com as melhores práticas do mercado jurídico."
   }
 ];
 
