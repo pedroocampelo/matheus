@@ -38,7 +38,7 @@ export default function Blog() {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {posts.map((post, index) => (
-            <Link key={index} to={`/blog/${post.slug}`}>
+             <Link key={index} to={`/blog/${post.slug}`} onClick={() => window.scrollTo(0, 0)}>
               <Card className="border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
                 <CardHeader>
                   <CardTitle className="text-xl text-primary leading-tight">
