@@ -1,17 +1,34 @@
 import { Button } from "@/react-app/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router";
 import ContactModal from "@/react-app/components/ContactModal";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // If we're on the home page, scroll to the section
+    if (location.pathname === "/") {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        setMobileMenuOpen(false);
+      }
+    } else {
+      // If we're on another page, navigate to home with the section hash
+      navigate(`/#${id}`);
       setMobileMenuOpen(false);
+      // After navigation, scroll to the section
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
   };
 
