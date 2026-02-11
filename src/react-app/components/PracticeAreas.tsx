@@ -3,9 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/rea
 
 const areas = [
   {
-    icon: Briefcase,
-    title: "Direito Trabalhista",
-    description: "Foi demitido e não recebeu tudo? Trabalha sem registro ou com abusos de jornada? Conte com orientação para garantir seus direitos."
+    icon: Scale,
+    title: "Direito Cível",
+    description: "Fez um contrato ruim ou está sendo cobrado errado? Sofreu prejuízo por danos? Saiba como ter respaldo legal."
   },
   {
     icon: ShoppingCart,
@@ -13,24 +13,24 @@ const areas = [
     description: "Passou por cobrança indevida ou comprou algo que não funciona como prometido? Você pode agir para reconquistar seus direitos."
   },
   {
-    icon: Home,
-    title: "Direito Imobiliário",
-    description: "Comprou imóvel com documentação irregular ou tem conflito de locação? Conte com orientação especializada para evitar prejuízos."
-  },
-  {
-    icon: Scale,
-    title: "Direito Cível",
-    description: "Fez um contrato ruim ou está sendo cobrado errado? Sofreu prejuízo por danos? Saiba como ter respaldo legal."
-  },
-  {
     icon: Building2,
     title: "Direito Empresarial",
     description: "Tem empresa ou vai abrir negócio? Evite problemas societários, contratos mal feitos ou riscos legais que podem comprometer seu crescimento."
   },
   {
+    icon: Home,
+    title: "Direito Imobiliário",
+    description: "Comprou imóvel com documentação irregular ou tem conflito de locação? Conte com orientação especializada para evitar prejuízos."
+  },
+  {
     icon: Coins,
     title: "Direito Previdenciário",
     description: "Precisa solicitar aposentadoria ou benefício do INSS? Se afastou por doença ou tem dúvidas sobre pensão ou LOAS?"
+  },
+  {
+    icon: Briefcase,
+    title: "Direito Trabalhista",
+    description: "Foi demitido e não recebeu tudo? Trabalha sem registro ou com abusos de jornada? Conte com orientação para garantir seus direitos."
   }
 ];
 
