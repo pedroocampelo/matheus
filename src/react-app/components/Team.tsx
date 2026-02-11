@@ -3,19 +3,22 @@ import { Instagram } from "lucide-react";
 
 const team = [
   {
+    name: "Bruno Romero",
+    oab: "OAB/CE 44.829",
+     image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Bruno-Romero.png",
+    instagram: "https://www.instagram.com/bruno_rcl/"
+  },
+  {
     name: "Lorenzo Marcello",
     oab: "OAB/CE 48.638",
-    image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Lorenzo-Marcello.png"
+     image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Lorenzo-Marcello.png",
+    instagram: "https://www.instagram.com/lorenzofmarcello/"
   },
   {
     name: "Matheus Lucena",
     oab: "OAB/CE 44.968",
-    image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Matheus-Lucena.png"
-  },
-  {
-    name: "Bruno Romero",
-    oab: "OAB/CE 44.829",
-    image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Bruno-Romero.png"
+    image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Matheus-Lucena.png",
+    instagram: "https://www.instagram.com/matheuslucenaadv/"
   }
 ];
 
@@ -51,7 +54,9 @@ export default function Team() {
                 </p>
                 <div className="flex items-center justify-center gap-2">
                   <a 
-                    href="#" 
+                     href={member.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-primary hover:text-primary/80 transition-colors"
                     aria-label={`Instagram de ${member.name}`}
                   >
