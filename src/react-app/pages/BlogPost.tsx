@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router";
+import { useParams, Link, useNavigate } from "react-router";
 import Header from "@/react-app/components/Header";
 import Footer from "@/react-app/components/Footer";
 import { Button } from "@/react-app/components/ui/button";
@@ -26,7 +26,18 @@ const blogPosts: Record<string, { title: string; date: string; content: string; 
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
   const post = slug ? blogPosts[slug] : null;
+
+  const handleBackToBlog = () => {
+    navigate("/#blog");
+    setTimeout(() => {
+      const blogSection = document.getElementById("blog");
+      if (blogSection) {
+        blogSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   if (!post) {
     return (
@@ -53,12 +64,10 @@ export default function BlogPost() {
       <Header />
       <main className="container mx-auto px-4 lg:px-8 py-16">
         <div className="max-w-3xl mx-auto">
-          <Link to="/#blog">
-            <Button variant="ghost" className="mb-8">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Voltar para o blog
-            </Button>
-          </Link>
+          <Button variant="ghost" className="mb-8" onClick={handleBackToBlog}>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Voltar para o blog
+          </Button>
           
           <article className="prose prose-lg max-w-none">
             <p className="text-sm text-muted-foreground mb-2">{post.date}</p>
