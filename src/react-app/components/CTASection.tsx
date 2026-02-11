@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/react-app/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import ContactModal from "@/react-app/components/ContactModal";
 
 export default function CTASection() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
     <section className="py-16 lg:py-20">
       <div className="container mx-auto px-4 lg:px-8">
@@ -16,10 +19,16 @@ export default function CTASection() {
           <Button 
             size="lg" 
             className="bg-white text-primary hover:bg-white/90 text-base font-semibold"
+            onClick={() => setIsContactModalOpen(true)}
           >
             <MessageCircle className="w-5 h-5 mr-2" />
             Iniciar conversa
           </Button>
+
+          <ContactModal 
+            open={isContactModalOpen} 
+            onOpenChange={setIsContactModalOpen}
+          />
         </div>
       </div>
     </section>
