@@ -3,7 +3,17 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from "@/react-app/components/ui/button";
 import { Input } from "@/react-app/components/ui/input";
 import { Label } from "@/react-app/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/react-app/components/ui/select";
 import { MessageCircle, Loader2 } from "lucide-react";
+
+const practiceAreas = [
+  "Direito Trabalhista",
+  "Direito do Consumidor",
+  "Direito Imobiliário",
+  "Direito Cível",
+  "Direito Empresarial",
+  "Direito Previdenciário"
+];
 
 interface ContactModalProps {
   open: boolean;
@@ -13,12 +23,13 @@ interface ContactModalProps {
 export default function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [areaOfInterest, setAreaOfInterest] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name.trim() || !phone.trim()) {
+    if (!name.trim() || !phone.trim() || !areaOfInterest) {
       return;
     }
 
@@ -26,7 +37,7 @@ export default function ContactModal({ open, onOpenChange }: ContactModalProps) 
 
     try {
       // Submit to Google Sheets
-      await fetch("https://script.google.com/macros/s/AKfycbzFGhb2L8ib66bdWPoUv4sVVVDkpKZb-Gcf0KBk2MR_M3Uo3bHNGRawKSSr9aK27RaXJA/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycbz32vwxlIgC6WEJRn-CN5MtwJ6R-AczVU-1WCKgjM7SOT-ItrNuvgQnf-4wo0AsXUYTpg/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -35,13 +46,14 @@ export default function ContactModal({ open, onOpenChange }: ContactModalProps) 
         body: JSON.stringify({
           name,
           phone,
+          areaOfInterest,
           timestamp: new Date().toISOString(),
         }),
       });
 
       // Open WhatsApp
       const whatsappNumber = "5585998017120";
-      const message = encodeURIComponent(`Olá! Meu nome é ${name} e meu telefone é ${phone}. Gostaria de obter orientação jurídica.`);
+      const message = encodeURIComponent(`Olá! Meu nome é ${name} e meu telefone é ${phone}. Tenho interesse em ${areaOfInterest}.`);
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
       
       window.open(whatsappUrl, "_blank");
@@ -49,6 +61,7 @@ export default function ContactModal({ open, onOpenChange }: ContactModalProps) 
       // Reset form and close modal
       setName("");
       setPhone("");
+      setAreaOfInterest("");
       onOpenChange(false);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -92,11 +105,32 @@ export default function ContactModal({ open, onOpenChange }: ContactModalProps) 
             />
           </div>
 
+          <div className="space-y-2">
+            <Label htmlFor="area">Qual sua área de interesse?</Label>
+            <Select 
+              value={areaOfInterest} 
+              onValueChange={setAreaOfInterest}
+              disabled={isSubmitting}
+              required
+            >
+              <SelectTrigger id="area">
+                <SelectValue placeholder="Selecione uma área" />
+              </SelectTrigger>
+              <SelectContent>
+                {practiceAreas.map((area) => (
+                  <SelectItem key={area} value={area}>
+                    {area}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           <Button 
             type="submit" 
             className="w-full" 
             size="lg"
-            disabled={isSubmitting || !name.trim() || !phone.trim()}
+            disabled={isSubmitting || !name.trim() || !phone.trim() || !areaOfInterest}
           >
             {isSubmitting ? (
               <>
