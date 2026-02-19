@@ -2,25 +2,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/rea
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
-const posts = [
+type BlogMeta = {
+  title: string;
+  snippet: string;
+  date: string; // ex: "19 de fevereiro de 2026"
+  slug: string; // precisa bater com o BlogPost.tsx
+};
+
+/**
+ * Para adicionar um novo post:
+ * 1) Adicione um item aqui (metadados: title/snippet/date/slug)
+ * 2) Adicione o conteúdo completo no BlogPost.tsx com o MESMO slug
+ */
+const posts: BlogMeta[] = [
   {
-    title: "Direitos Trabalhistas: O que você precisa saber",
-    snippet: "Conheça seus principais direitos como trabalhador e entenda quando procurar orientação jurídica para garantir que sejam respeitados.",
-    date: "15 de Dezembro, 2024",
-    slug: "direitos-trabalhistas"
+    title: "Seja bem-vindo ao nosso Blog Jurídico",
+    snippet:
+      "Este blog nasce para conversar sobre Direito de forma clara, acessível e honesta — sem juridiquês desnecessário.",
+    date: "19 de fevereiro de 2026",
+    slug: "seja-bem-vindo-ao-nosso-blog-juridico",
   },
-  {
-    title: "Defesa do Consumidor: Como agir em casos de cobrança indevida",
-    snippet: "Saiba quais são seus direitos ao identificar cobranças indevidas e os passos para buscar reparação e restituição de valores.",
-    date: "10 de Dezembro, 2024",
-    slug: "defesa-do-consumidor"
-  },
-  {
-    title: "Aposentadoria: Quando solicitar a revisão do benefício",
-    snippet: "Entenda em quais situações é possível solicitar a revisão de aposentadoria e como isso pode aumentar o valor do seu benefício.",
-    date: "5 de Dezembro, 2024",
-    slug: "aposentadoria-revisao"
-  }
 ];
 
 export default function Blog() {
@@ -36,17 +37,16 @@ export default function Blog() {
           </p>
         </div>
 
+        {/* Mantém seu layout escalável (grid). Com 1 post fica centralizado. */}
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {posts.map((post, index) => (
-             <Link key={index} to={`/blog/${post.slug}`} onClick={() => window.scrollTo(0, 0)}>
+          {posts.map((post) => (
+            <Link key={post.slug} to={`/blog/${post.slug}`} onClick={() => window.scrollTo(0, 0)}>
               <Card className="border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
                 <CardHeader>
                   <CardTitle className="text-xl text-primary leading-tight">
                     {post.title}
                   </CardTitle>
-                  <CardDescription className="text-sm">
-                    {post.date}
-                  </CardDescription>
+                  <CardDescription className="text-sm">{post.date}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
