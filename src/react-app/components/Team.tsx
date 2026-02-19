@@ -5,19 +5,19 @@ const team = [
   {
     name: "Bruno Romero",
     oab: "OAB/CE 44.829",
-     image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Bruno-Romero.png",
+     image: "/bruno romero.png",
     instagram: "https://www.instagram.com/bruno_rcl/"
   },
   {
     name: "Lorenzo Marcello",
     oab: "OAB/CE 48.638",
-     image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Lorenzo-Marcello.png",
+     image: "/lorenzo marcello.pngg",
     instagram: "https://www.instagram.com/lorenzofmarcello/"
   },
   {
     name: "Matheus Lucena",
     oab: "OAB/CE 44.968",
-    image: "https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Foto-dos-Advogados-Matheus-Lucena.png",
+    image: "/matheus lucena.png",
     instagram: "https://www.instagram.com/matheuslucenaadv/"
   }
 ];
