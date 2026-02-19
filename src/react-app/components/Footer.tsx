@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 gap-8 mb-8 max-w-4xl mx-auto">
           <div>
             <img 
-              src="https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Logo.png" 
+              src="/LMR-Logo.png" 
               alt="LMR Advogados" 
               className="h-10 mb-4"
             />
