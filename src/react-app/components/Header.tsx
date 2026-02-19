@@ -38,7 +38,7 @@ const navigate = useNavigate();
         <div className="flex items-center justify-between h-20 lg:h-24">
           <div className="flex items-center">
             <img 
-              src="https://019c4cff-51cf-7818-9314-08f1860804e4.mochausercontent.com/LMR-Logo.png" 
+              src="/LMR-Logo.png" 
               alt="LMR Advogados" 
               className="h-12 lg:h-16"
             />
