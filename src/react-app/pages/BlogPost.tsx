@@ -4,24 +4,32 @@ import Footer from "@/react-app/components/Footer";
 import { Button } from "@/react-app/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
-const blogPosts: Record<string, { title: string; date: string; content: string; image?: string; imageCaption?: string }> = {
-  "direitos-trabalhistas": {
-    title: "Direitos Trabalhistas: O que você precisa saber",
-    date: "15 de Dezembro, 2024",
-    content: "Conteúdo do artigo sobre direitos trabalhistas será adicionado aqui.",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&auto=format&fit=crop",
-    imageCaption: "Orientação jurídica especializada garante que seus direitos trabalhistas sejam respeitados"
+type BlogPostData = {
+  title: string;
+  date: string;
+  content: string;
+  image?: string;
+  imageCaption?: string;
+};
+
+/**
+ * Para adicionar um novo post:
+ * 1) Crie uma nova chave aqui com o slug (ex: "meu-novo-post")
+ * 2) Preencha title/date/content (e image opcional)
+ * 3) Adicione o MESMO slug no array `posts` do Blog.tsx
+ */
+const blogPosts: Record<string, BlogPostData> = {
+  "seja-bem-vindo-ao-nosso-blog-juridico": {
+    title: "Seja bem-vindo ao nosso Blog Jurídico",
+    date: "19 de fevereiro de 2026",
+    content: `Se você já se sentiu perdido ao tentar entender um contrato, uma decisão judicial ou até mesmo uma notícia sobre uma nova lei, saiba que isso é comum. O Direito está presente no nosso dia a dia, mas muitas vezes é tratado de forma distante e cheio de termos complicados. Este blog nasce para simplificar essa realidade e aproximar o Direito das pessoas.
+
+Aqui vamos falar, de forma clara e direta, sobre temas jurídicos que fazem parte da vida cotidiana e sobre dúvidas recorrentes, como: o que é o BPC/LOAS e quem tem direito? Trabalhei sem carteira assinada, posso exigir meus direitos? Quais são os direitos trabalhistas e como identificar possíveis violações? Entre outros assuntos que impactam decisões importantes da vida pessoal e profissional.
+
+A proposta é traduzir o que a lei diz para a prática, sem juridiquês desnecessário. Este é um espaço de informação e orientação, pensado para quem quer entender melhor seus direitos.
+
+Seja bem-vindo(a).`,
   },
-  "defesa-do-consumidor": {
-    title: "Defesa do Consumidor: Como agir em casos de cobrança indevida",
-    date: "10 de Dezembro, 2024",
-    content: "Conteúdo do artigo sobre defesa do consumidor será adicionado aqui."
-  },
-  "aposentadoria-revisao": {
-    title: "Aposentadoria: Quando solicitar a revisão do benefício",
-    date: "5 de Dezembro, 2024",
-    content: "Conteúdo do artigo sobre aposentadoria será adicionado aqui."
-  }
 };
 
 export default function BlogPost() {
@@ -68,15 +76,15 @@ export default function BlogPost() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar para o blog
           </Button>
-          
+
           <article className="prose prose-lg max-w-none">
             <p className="text-sm text-muted-foreground mb-2">{post.date}</p>
             <h1 className="text-4xl font-bold text-primary mb-8">{post.title}</h1>
-            
+
             {post.image && (
               <figure className="mb-8">
-                <img 
-                  src={post.image} 
+                <img
+                  src={post.image}
                   alt={post.imageCaption || post.title}
                   className="w-full rounded-lg shadow-lg"
                 />
@@ -87,7 +95,7 @@ export default function BlogPost() {
                 )}
               </figure>
             )}
-            
+
             <div className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
               {post.content}
             </div>
