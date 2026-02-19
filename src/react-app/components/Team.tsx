@@ -11,7 +11,7 @@ const team = [
   {
     name: "Lorenzo Marcello",
     oab: "OAB/CE 48.638",
-     image: "/lorenzo marcello.pngg",
+     image: "/lorenzo marcello.png",
     instagram: "https://www.instagram.com/lorenzofmarcello/"
   },
   {
